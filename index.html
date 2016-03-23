@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API DOCU</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,10 +86,12 @@
   color: #90a959;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,9 +101,6 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -111,97 +108,129 @@
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the eve What the Eve API! You can use our API to access What the Eve API endpoints, which can get information on various events, locations, and festivals in our database.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>The What the Eve API provides in automatically updated event data. This event data includes;</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<ul>
+<li>Concerts</li>
+<li>Club nights</li>
+<li>Theatre shows</li>
+<li>Dance</li>
+<li>Comedy</li>
+<li>Movies</li>
+</ul>
+
+<p>At the release of this document we provide coverage for the complete Amsterdam metropolitan area or ‘Randstad’ located in the Netherlands. This includes the city regions of Amsterdam, Rotterdam, Utrecht, The Hague. During 2016 we will provide data nationwide.
+Our data is automatically updated and directly retrieved from event venue websites. This includes venues as;</p>
+
+<ul>
+<li>Concert halls</li>
+<li>(Beach-) Clubs</li>
+<li>Theatres</li>
+<li>Cinemas</li>
+<li>Festival grounds</li>
+<li>(Live-music) Bars</li>
+<li>Hotels</li>
+<li>Stadiums</li>
+</ul>
+
+<p>With this API you’re able to retrieve event and venue data based on a multitude of parameters and filter queries.
+The API is based on the REST principle. We currently only provide GET endpoints. JSON is returned in all API responses, including errors.
+Access to the API is available on request.</p>
 
 <h1 id="authentication">Authentication</h1>
 
+<p>For access to the API you’ll need an API-key.
+The API-key has to be included in the header of every request:
+To authorize, use this code:
+ With shell, you can just pass the correct header with each request
+curl &ldquo;https://api.whattheeve.com/v2/events&rdquo;
+  -H &ldquo;Authorization: Token API_KEY&rdquo;
+Make sure to replace API_KEY with your own API credentials.</p>
+
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>the services:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre class="highlight ruby"><code><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">eve</span><span class="o">-</span><span class="n">dev</span><span class="p">.</span><span class="nf">datalinks</span><span class="p">.</span><span class="nf">nl</span><span class="p">:</span><span class="mi">7370</span><span class="o">/</span><span class="n">eve</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">open_search</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">search</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>All type of genres and their corresponding ID&rsquo;s</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p>//I don&rsquo;t know if there are any Authorization.
+<code class="prettyprint">Authorization: meowmeowmeow</code></p>
 
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
+<h1 id="services">Services</h1>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="get-all-events">Get All events</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<blockquote>
+<p>This is the request from events</p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://eve-dev.datalinks.nl:7670/eve-service-open_events/rest/events?
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>This is the response from events</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"result"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"658974"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monday"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monday. where dj's, artists, producers, promoters and people who work in the hottest restaurants and bars of amsterdam come together and meet for a drink. they come in and simply just chill, network and party like there's no tuesday! music: oldschool r&amp;b and hip-hop in supperclub and (deep)house classics in apt. make sure you're on the list! www.partyonmonday.com or www.facebook.com/partyonmonday"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-17 18:00:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-17 19:40:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"imageurl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"videourl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=LJXkOFXmRLo"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"video_thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://img.youtube.com/vi/LJXkOFXmRLo/0.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"film"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"type_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"cancelled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"sold_out"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"venue_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"422"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Venue"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"422"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omniversum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"President Kennedylaan"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2517 JK"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amsterdam"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020 573 05 73"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bioscoop"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"typeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"imageurl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.eve.nu/KEEP_ALIVE/images/events/600x500/20150528130601.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://concertgebouw.nl/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/omniversum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52.0892664"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.2818149"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omniversum is een grootbeeldfilmtheater. De films worden door een geavanceerde techniek op een enorm projectiescherm geprojecteerd. Het scherm heeft..."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omniversum is een grootbeeldfilmtheater. De films worden door een geavanceerde techniek op een enorm projectiescherm geprojecteerd. Het scherm heeft de vorm van een halve bol en loopt half rondom het publiek. Dit koepelscherm is zo groot als een half voetbalveld. Overal om u heen ziet u het beeld van de film. De beleving wordt nog eens extra versterkt door een subliem geluidssysteem. Ronduit Spectaculair dus!"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint retrieves all kittens.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">http://eve-dev.datalinks.nl:7670/eve-service-open_events/rest/events?</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -213,22 +242,115 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>page</td>
+<td>int</td>
+<td>Page number of event list.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>limit</td>
+<td>int</td>
+<td>Limit per page. 0 for full list - till a maximum of 1000.</td>
+</tr>
+<tr>
+<td>genre</td>
+<td>int</td>
+<td>1 - 10 *</td>
+</tr>
+<tr>
+<td>min_price</td>
+<td>int</td>
+<td>Minimum price for an event.</td>
+</tr>
+<tr>
+<td>max_price</td>
+<td>int</td>
+<td>Maximum price for an event . 0 for free.</td>
+</tr>
+<tr>
+<td>from_date</td>
+<td>timestamp</td>
+<td>From date &amp; time. Format: YYYY-MM-DD HH:MM:SS.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>timestamp</td>
+<td>End date &amp; time. Format: YYYY-MM-DD HH:MM:SS.</td>
+</tr>
+<tr>
+<td>max_distance</td>
+<td>int</td>
+<td>maximum distance in kilometers from latitude, longitude position.</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>string</td>
+<td>Center latitude for maximum distance.</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>string</td>
+<td>Center longitude for maximum distance.</td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td>The city where the event is.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+All type of genres and their corresponding ID&rsquo;s
 </aside>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
+<table><thead>
+<tr>
+<th>ID</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Concert</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Festival</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DJ</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Theater</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dance</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Cabaret</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Movie</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Other</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Kids</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-specific-event">Get a Specific Event</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
@@ -255,13 +377,13 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<p>THis endpoint retrieves a specific event.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET https://api.whattheeve.com/v2/event/:event_id</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -273,7 +395,115 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>The ID of the event to retrieve</td>
+</tr>
+</tbody></table>
+
+<h2 id="search">Search</h2>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>THis endpoint retrieves a specific location.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.whattheeve.com/v2/search?:parameters</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keyword (required)</td>
+<td>string</td>
+<td>String of search keywords (should be at least 3 characters).</td>
+</tr>
+<tr>
+<td>page</td>
+<td>int</td>
+<td>Page number of event list.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>Limit per page. 0 for full list.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-specific-location">Get a Specific Location</h2>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.whattheeve.com/v2/venue/:venue_id</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>int</td>
+<td>The ID of the location to retrieve</td>
+</tr>
+<tr>
+<td>page</td>
+<td>int</td>
+<td>page number of event list.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>limit per page. 0 for full list.</td>
 </tr>
 </tbody></table>
 
@@ -338,9 +568,6 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
           </div>
       </div>
     </div>
